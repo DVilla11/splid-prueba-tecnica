@@ -1,0 +1,26 @@
+<nav class="navbar" *ngIf="!loading">
+    <h1>Splid</h1>
+    <div class="username-logout">
+        <h4>{{ userInfo.username }}</h4>
+        <button (click)="logOut()">Cerrar sesión</button>
+    </div>
+</nav>
+<main class="container">
+    <form (ngSubmit)="onSubmit()" [formGroup]="groupForm">
+        <div class='column'>
+            <label>
+                Nombre Grupo
+                <input placeholder='Nombre de grupo' type='text' id="groupName" name="groupName" formControlName="groupName"/>
+            </label>
+        </div>
+            <button class="button-form">Crear grupo</button>
+    </form>
+
+    <div class="cards" *ngFor="let group of listGroups">
+        <a class="card" [routerLink]="['/group', group.name]">
+            <div>
+            <h2>{{ group.name }}</h2>
+            </div>
+        </a>
+    </div>
+</main>

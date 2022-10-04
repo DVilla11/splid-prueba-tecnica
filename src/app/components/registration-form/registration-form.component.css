@@ -1,0 +1,38 @@
+.container{
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    text-align: center;
+    border : solid;
+    align-items: center;
+    margin : auto;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+label{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+input {
+    height: 1.5rem;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.button-form {
+    width: 5.5rem;
+    margin: 10px;
+    border-radius: 15px;
+    transition-duration: 0.4s;
+}
+
+.button-form:hover{
+    opacity: 0.8;
+}

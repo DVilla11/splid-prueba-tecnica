@@ -1,0 +1,43 @@
+<main class="box red">
+    <header class="header">
+        <h1>Gastos</h1>
+        <button (click)="formFriend()" ng-show="!showFriendForm">Añadir amigo</button>
+    </header>
+    <form *ngIf="showFriendForm" (ngSubmit)="onSubmit()" [formGroup]="friendForm">
+        <div class='column'>
+            <label>
+                Nombre
+                <input placeholder='Nombre' type='text' id="name" name="name" formControlName="name"/>
+            </label>
+
+            <label>
+                Descripción
+                <input placeholder='Descripción' type='text' id="description" name="description" formControlName="description"/>
+            </label>
+            
+            <label>
+                Gasto
+                <input placeholder='Gasto' type='text' id="bill" name="bill" pattern="[0-9]+[.]?[0-9]*" formControlName="bill"/>
+            </label>
+
+            <button [disabled]="friendForm.invalid">Enviar</button>
+        </div>
+     </form> 
+    <section class="container"  *ngFor="let friend of listFriends">
+        <div>
+            <h4>{{ friend.name }}</h4>
+            <h4>{{ friend.description }}</h4>
+        </div>
+        <div>
+            <h4>{{ friend.bill }}€</h4>
+            <h4>{{ friend.date }}</h4>
+        </div>
+    </section>
+    <footer>
+        <h1> Balance </h1>
+        <div *ngFor="let balance of listBalanced" class="balance">
+            <h3> {{ balance.name }}: </h3>
+            <h3> {{ balance.balance }}€ </h3>
+        </div>
+    </footer>
+</main>

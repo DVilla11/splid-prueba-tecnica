@@ -1,0 +1,21 @@
+<div class="container">
+    <h4>Formulario de incio sesión</h4>
+    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+        <div class='column'>
+            <label>
+            Nombre Usuario*
+            <input placeholder='Nombre de usuario' type='text' id="username" name="username" formControlName="username"/>
+            </label>
+
+            <label>
+            Contraseña*
+            <input placeholder='Constraseña' type='password' id="password" name="password" formControlName="password"/>
+            </label>
+            
+        </div>
+        
+        <button class="button-form" [disabled]="loginForm.invalid">Iniciar sesión</button>
+
+    </form>
+    <p>No tienes cuenta <a routerLink="/singup">registrarse</a> </p>
+</div>

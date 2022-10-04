@@ -1,0 +1,32 @@
+<div class="container">
+    <h4>Formulario de registro</h4>
+    <form (ngSubmit)="onSubmit()" [formGroup]="singUpForm">
+        <div class='column'>
+            <label>
+            Nombre Usuario*
+            <input placeholder='Nombre de usuario' type='text' required id="username" name="username" formControlName="username">
+            <p *ngIf="singUpForm.get('username')?.touched && singUpForm.get('username')?.errors?.['required']" >Este campo es requerido.</p>
+            <p *ngIf="singUpForm.get('username')?.touched && singUpForm.get('username')?.errors?.['minlength']" >Necesita al menos {{singUpForm.get('username')?.errors?.['minlength']?.requiredLength}} letras.</p>
+            </label>
+
+            <label>
+            Email*
+            <input placeholder='Email' type='email' required id="email" name="email" formControlName="email"/>
+            <p *ngIf="singUpForm.get('email')?.touched && singUpForm.get('email')?.errors?.['required']" >Este campo es requerido.</p>
+            <p *ngIf="singUpForm.get('email')?.touched && singUpForm.get('email')?.errors?.['email']" >Tiene que ser un correo valido</p>
+            </label>
+
+            <label>
+            Contraseña*
+            <input placeholder='Constraseña' type='password' required id="password" name="password" formControlName="password"/>
+            <p *ngIf="singUpForm.get('password')?.touched && singUpForm.get('password')?.errors?.['required']" >Este campo es requerido.</p>
+            <p *ngIf="singUpForm.get('password')?.touched && singUpForm.get('password')?.errors?.['minlength']" >Necesita al menos {{singUpForm.get('password')?.errors?.['minlength']?.requiredLength}} letras.</p>
+            </label>
+            
+        </div>
+        
+        <button class="button-form" [disabled]="singUpForm.invalid">Registrarse</button>
+
+    </form>
+    <p>Ya tienes cuenta <a routerLink="/login">iniciar sesión</a> </p>
+</div>
